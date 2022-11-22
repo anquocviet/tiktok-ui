@@ -1,4 +1,4 @@
-import { Header } from '~/Components/Layouts/Components';
+import Header from '~/Components/Layouts/Components/Header';
 import Sidebar from './Sidebar';
 import styles from './DefaultLayout.module.scss';
 import clsx from 'clsx';

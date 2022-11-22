@@ -4,6 +4,7 @@ $background-border-color: rgb(22, 24, 35);
    --search-border-radius: 92px;
    --header-top-spaces: 9px;
    --width-search-button: 52px;
+   --width-search-box: 361px;
    height: var(--default-layout-header-height);
    width: 100%;
    box-shadow: 0px 1px 1px rgb(0 0 0 / 12%);
@@ -21,7 +22,7 @@ $background-border-color: rgb(22, 24, 35);
 
 .search {
    height: var(--search-height);
-   width: 361px;
+   width: var(--width-search-box);
    background-color: #f1f1f2;
    display: flex;
    align-items: center;
@@ -42,6 +43,12 @@ $background-border-color: rgb(22, 24, 35);
    &:focus-within {
       border-color: rgba($background-border-color, $alpha: 0.2);
    }
+}
+
+.searchTitle {
+   padding: 5px 12px;
+   font-size: 1.4rem;
+   color: rgba($background-border-color, $alpha: 0.5);
 }
 
 .clear,
@@ -76,4 +83,8 @@ $background-border-color: rgb(22, 24, 35);
       display: block;
       border-left: 1px solid rgba($background-border-color, $alpha: 0.12);
    }
+}
+
+.searchResult {
+   width: var(--width-search-box);
 }
