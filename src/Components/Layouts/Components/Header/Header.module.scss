@@ -1,4 +1,9 @@
+$background-border-color: rgb(22, 24, 35);
 .wrapper {
+   --search-height: 46px;
+   --search-border-radius: 92px;
+   --header-top-spaces: 9px;
+   --width-search-button: 52px;
    height: var(--default-layout-header-height);
    width: 100%;
    box-shadow: 0px 1px 1px rgb(0 0 0 / 12%);
@@ -9,5 +14,66 @@
 .inner {
    height: 100%;
    width: var(--default-layout-width);
-   background-color: #ccc;
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+}
+
+.search {
+   height: var(--search-height);
+   width: 361px;
+   background-color: #f1f1f2;
+   display: flex;
+   align-items: center;
+   border-radius: var(--search-border-radius);
+   padding-left: 16px;
+   border: 1.5px solid transparent;
+   position: relative;
+   input {
+      height: 100%;
+      background-color: transparent;
+      font-size: 16px;
+      caret-color: var(--primary-color);
+      flex: 1;
+   }
+   input:not(:placeholder-shown) ~ .searchBtn {
+      color: rgba($background-border-color, $alpha: 0.75);
+   }
+   &:focus-within {
+      border-color: rgba($background-border-color, $alpha: 0.2);
+   }
+}
+
+.clear,
+.loading {
+   position: absolute;
+   right: calc(var(--width-search-button) + 12px);
+   color: rgba($background-border-color, $alpha: 0.34);
+}
+
+.searchBtn {
+   height: calc(var(--search-height) - 2px);
+   width: var(--width-search-button);
+   border-top-right-radius: var(--search-border-radius);
+   border-bottom-right-radius: var(--search-border-radius);
+   position: relative;
+   font-size: 1.8rem;
+   color: rgba($color: $background-border-color, $alpha: 0.34);
+   &:hover {
+      cursor: pointer;
+      background-color: rgba($background-border-color, $alpha: 0.03);
+   }
+   &:active {
+      background-color: rgba($background-border-color, $alpha: 0.06);
+   }
+   &::before {
+      content: '';
+      position: absolute;
+      height: calc(var(--search-height) - var(--header-top-spaces) * 2);
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      display: block;
+      border-left: 1px solid rgba($background-border-color, $alpha: 0.12);
+   }
 }
