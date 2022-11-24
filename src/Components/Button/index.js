@@ -2,7 +2,7 @@ import clsx from 'clsx';
 import styles from './Button.module.scss';
 import { Link } from 'react-router-dom';
 
-function Button({ to, href, children, type = 'primary', size, disable, leftIcon, rightIcon, onClick, ...passProps }) {
+function Button({ className, to, href, children, type, size, disable, leftIcon, rightIcon, onClick, ...passProps }) {
    let Component = 'button';
    const props = {
       onClick,
@@ -25,6 +25,7 @@ function Button({ to, href, children, type = 'primary', size, disable, leftIcon,
    }
 
    const classes = clsx(styles.wrapper, {
+      [className]: className,
       [styles[type]]: type,
       [styles[size]]: size,
       [styles.disable]: disable,

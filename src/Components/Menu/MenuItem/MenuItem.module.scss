@@ -1,0 +1,12 @@
+.wrapper {
+   height: 42px;
+   width: 100%;
+   display: flex;
+   justify-content: flex-start;
+   align-items: center;
+   padding: 10px 8px 10px 16px;
+   font-weight: 500;
+   + .wrapper {
+      margin-left: 0;
+   }
+}

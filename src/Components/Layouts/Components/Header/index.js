@@ -2,16 +2,46 @@ import clsx from 'clsx';
 import Tippy from '@tippyjs/react/headless';
 import { useEffect, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCircleXmark, faMagnifyingGlass, faPlus, faSpinner } from '@fortawesome/free-solid-svg-icons';
+import {
+   faCircleHalfStroke,
+   faCircleXmark,
+   faEllipsisVertical,
+   faLanguage,
+   faMagnifyingGlass,
+   faPlus,
+   faSpinner,
+   faToggleOff,
+} from '@fortawesome/free-solid-svg-icons';
+import { faCircleQuestion, faKeyboard } from '@fortawesome/free-regular-svg-icons';
 
 import images from '~/assets/image';
 import styles from './Header.module.scss';
 import AccountItem from '~/Components/AccountItem';
 import { Wrapper as WrapperPopper } from '~/Components/Popper';
 import Button from '~/Components/Button';
+import Menu from '~/Components/Menu';
 
 function Header() {
    const [searchResult, setSearchResult] = useState([]);
+   const MENU_LIST = [
+      {
+         leftIcon: <FontAwesomeIcon icon={faLanguage} />,
+         title: 'English',
+      },
+      {
+         leftIcon: <FontAwesomeIcon icon={faCircleQuestion} />,
+         title: 'Feedback and help',
+      },
+      {
+         leftIcon: <FontAwesomeIcon icon={faKeyboard} />,
+         title: 'Keyboard shortcuts',
+      },
+      {
+         leftIcon: <FontAwesomeIcon icon={faCircleHalfStroke} />,
+         title: 'Dark mode',
+         rightIcon: <FontAwesomeIcon icon={faToggleOff} />,
+      },
+   ];
    useEffect(() => {
       setSearchResult([]);
    }, []);
@@ -50,7 +80,15 @@ function Header() {
                <Button to="/upload" type="textOutline" leftIcon={<FontAwesomeIcon icon={faPlus} />}>
                   Upload
                </Button>
-               <Button to="/login">Log in</Button>
+               <Button to="/login" type="primary">
+                  Log in
+               </Button>
+
+               <Menu items={MENU_LIST}>
+                  <button className={styles.moreBtn}>
+                     <FontAwesomeIcon icon={faEllipsisVertical} />
+                  </button>
+               </Menu>
             </div>
          </div>
       </header>
