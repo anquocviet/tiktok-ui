@@ -18,6 +18,7 @@ $background-border-color: rgb(22, 24, 35);
    display: flex;
    align-items: center;
    justify-content: space-between;
+   padding: 0 20px;
 }
 
 .search {
@@ -53,6 +54,7 @@ $background-border-color: rgb(22, 24, 35);
 
 .clear,
 .loading {
+   display: flex;
    position: absolute;
    right: calc(var(--width-search-button) + 12px);
    color: rgba($background-border-color, $alpha: 0.34);
@@ -63,6 +65,9 @@ $background-border-color: rgb(22, 24, 35);
    width: var(--width-search-button);
    border-top-right-radius: var(--search-border-radius);
    border-bottom-right-radius: var(--search-border-radius);
+   display: flex;
+   align-items: center;
+   justify-content: center;
    position: relative;
    font-size: 1.8rem;
    color: rgba($color: $background-border-color, $alpha: 0.34);
@@ -89,8 +94,35 @@ $background-border-color: rgb(22, 24, 35);
    width: var(--width-search-box);
 }
 
+.actions {
+   display: flex;
+   align-items: center;
+   & {
+      .messageBtn,
+      .inboxBtn {
+         display: flex;
+         font-size: 2rem;
+         background-color: var(--white);
+         padding: 0 4px;
+         margin-left: 16px;
+         cursor: pointer;
+      }
+   }
+}
+
+.avatarUser {
+   width: 32px;
+   height: 32px;
+   border-radius: 50%;
+   object-fit: cover;
+   margin-left: 16px;
+   &:hover {
+      cursor: pointer;
+   }
+}
+
 .moreBtn {
-   margin: 0 16px;
+   margin-left: 20px;
    padding: 0 4px;
    background-color: transparent;
    font-size: 1.8rem;

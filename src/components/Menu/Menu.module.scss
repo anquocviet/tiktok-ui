@@ -1,0 +1,48 @@
+.wrapper {
+   padding-bottom: 8px;
+}
+
+.menuList {
+   width: 223px;
+}
+
+// Menu Item
+.menuItem {
+   height: 42px;
+   width: 100%;
+   display: flex;
+   justify-content: flex-start;
+   align-items: center;
+   padding: 10px 8px 10px 16px;
+
+   + .menuItem {
+      margin-left: 0;
+   }
+
+   &.separate {
+      border-top: 1px solid #1618231f;
+   }
+}
+
+// Menu Header
+.header {
+   display: flex;
+   align-items: center;
+   height: 50px;
+   margin-top: -8px;
+}
+
+.backIcon {
+   font-size: 1.7rem;
+   margin-left: 28px;
+   &:hover {
+      cursor: pointer;
+   }
+}
+
+.headerTitle {
+   position: absolute;
+   left: 50%;
+   transform: translateX(-50%);
+   cursor: default;
+}
